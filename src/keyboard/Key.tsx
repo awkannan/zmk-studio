@@ -53,7 +53,11 @@ const ChildItem: FC<PropsWithChildren<{ hoverZoom: boolean }>> = ({
       data-zoomer={hoverZoom}
       className="col-start-2 col-end-3 row-start-2 row-end-3 self-center justify-self-center font-keycap text-lg"
     >
-      {children}
+      <div className="row-start-2 row-span-1 col-start-2 w-full h-full p-1 pt-0.5">
+        <div className="h-full overflow-hidden rounded-md grid grid-cols-1 gap-y-0.5">
+          {children}
+        </div>
+      </div>
     </div>
   );
 };
@@ -84,9 +88,14 @@ export const Key = ({
         ].join(" ")}
       >
         {header && (
+          <div>
           <span className="absolute	inset-x-1 top-1 hidden h-4 w-9/12 truncate whitespace-nowrap text-center text-micro uppercase leading-none group-hover:block">
             {header}
           </span>
+          <span className="absolute	inset-x-1 top-1 h-4 w-auto truncate whitespace-nowrap text-left text-micro leading-none group-hover:hidden">
+            {header}
+          </span>
+          </div>
         )}
 
         {props.children &&
